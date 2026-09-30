@@ -17,15 +17,13 @@ class Solution {
         }
 
         for(String word: wordDict){
-            System.out.println(word);
-            boolean c = false;
-            // System.out.println(s.substring(i, i+word.length()));
             if(i+word.length()-1<s.length() && s.substring(i, i+word.length()).equals(word)){
-                 c = dfs(s, wordDict, i+word.length());
+                 if(dfs(s, wordDict, i+word.length())){
+                    map.put(i, true);
+                    return true;
+                }            
             }
-            if(c){
-                return true;
-            }
+           
         }
         map.put(i, false);
         return false;
