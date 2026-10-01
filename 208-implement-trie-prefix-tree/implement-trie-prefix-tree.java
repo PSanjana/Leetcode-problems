@@ -16,9 +16,11 @@ class Trie {
         TrieNode cur = node;
 
         for(char c : charArray){
-            if(!cur.map.containsKey(c)){
-                cur.map.put(c, new TrieNode());
-            } 
+            // if(!cur.map.containsKey(c)){
+            //     cur.map.put(c, new TrieNode());
+            // } 
+            // cur = cur.map.get(c);
+            cur.map.putIfAbsent(c, new TrieNode());
             cur = cur.map.get(c);
         }
         cur.endOfWord= true;
